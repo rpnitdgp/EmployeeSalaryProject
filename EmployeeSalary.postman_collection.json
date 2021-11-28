@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "0d696d36-8446-46ff-91bf-56cf128a2234",
+		"name": "EmployeeSalary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAllEmployees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://employeesalaryproject.azurewebsites.net/api/EmployeeDetailsAPI",
+					"protocol": "https",
+					"host": [
+						"employeesalaryproject",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"EmployeeDetailsAPI"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Employee",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"firstName\": \"Pratap\",\r\n\t\"lastName\": \"Hannu\",\r\n\t\"dateOfBirth\": \"1988-11-24T00:00:00\",\r\n\t\"workingHours\": 40,\r\n\t\"grossSalary\": 99000\r\n}"
+				},
+				"url": {
+					"raw": "https://employeesalaryproject.azurewebsites.net/api/EmployeeDetailsAPI/CreateEmployee",
+					"protocol": "https",
+					"host": [
+						"employeesalaryproject",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"EmployeeDetailsAPI",
+						"CreateEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"empId\": 27,\r\n\t\"workingHours\": 40,\r\n\t\"grossSalary\": 98000\r\n}"
+				},
+				"url": {
+					"raw": "https://employeesalaryproject.azurewebsites.net/api/EmployeeDetailsAPI/UpdateEmployee",
+					"protocol": "https",
+					"host": [
+						"employeesalaryproject",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"EmployeeDetailsAPI",
+						"UpdateEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://employeesalaryproject.azurewebsites.net/api/EmployeeDetailsAPI/DeleteEmployee/31",
+					"protocol": "https",
+					"host": [
+						"employeesalaryproject",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"EmployeeDetailsAPI",
+						"DeleteEmployee",
+						"31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Export Employee Salary",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://employeesalaryproject.azurewebsites.net/api/EmployeeDetailsAPI/ExportSalaryForEmployees/27",
+					"protocol": "https",
+					"host": [
+						"employeesalaryproject",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"EmployeeDetailsAPI",
+						"ExportSalaryForEmployees",
+						"27"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
