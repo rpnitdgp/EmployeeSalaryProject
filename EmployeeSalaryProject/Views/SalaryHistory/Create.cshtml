@@ -1,0 +1,69 @@
+﻿@model EmployeeSalaryProject.Models.SalaryHistory
+
+<form method="post" asp-action="Create">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Add Salary History</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="EmpID"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="Month"></label>
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="Year"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="WorkingHours"></label>
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="GrossSalary"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <input asp-for="EmpID" class="form-control" />
+                        <span asp-validation-for="EmpID" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="Month" min="1" max="12" class="form-control" />
+                        <span asp-validation-for="Month" class="text-danger"></span>
+                    </div>
+                    <div class="col-3">
+                        <input asp-for="Year" max="@DateTime.Now.Year" class="form-control" />
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="WorkingHours" class="form-control" />
+                        <span asp-validation-for="WorkingHours" class="text-danger"></span>
+                    </div>
+                    <div class="col-3">
+                        <input asp-for="GrossSalary" class="form-control" />
+                        <span asp-validation-for="GrossSalary" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

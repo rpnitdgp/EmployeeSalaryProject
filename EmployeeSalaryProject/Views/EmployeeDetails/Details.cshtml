@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EmployeeSalaryProject.Models.SalaryHistory>
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Salary History List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="SalaryHistory" asp-action="Create" class="btn btn-primary">Add New Salary</a>
+        </div>
+    </div>
+    <br />
+    @if (Model.Count() > 0)
+    {
+        <input asp-for="@Model.First().EmpID" hidden />
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Employee ID
+                    </th>
+                    <th>
+                        Month
+                    </th>
+                    <th>
+                        Year
+                    </th>
+                    <th>
+                        Net Salary
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var salaryHistory in Model)
+                {
+                    <tr>
+                        <td width="20%">@salaryHistory.EmpID</td>
+                        <td width="20%">@salaryHistory.Month</td>
+                        <td width="20%">@salaryHistory.Year</td>
+                        <td width="20%">@salaryHistory.SalaryAmount</td>
+                        <td width="20%">
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="SalaryHistory" asp-action="Update" asp-route-Id="@salaryHistory.SalaryID" class="btn btn-primary mx-1">Update</a>
+                                <a asp-controller="SalaryHistory" asp-action="Delete" asp-route-Id="@salaryHistory.SalaryID" class="btn btn-danger mx-1">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @using (Html.BeginForm("ExportDetailsToCSV", "EmployeeDetails", new { empId = @Model.First().EmpID }, FormMethod.Post))
+        {
+            <input type="submit" id="btnSubmit" value="Export" class="text-center" />
+        }
+    }
+    else
+    {
+        <p>There is no salary history for this employee!</p>
+    }
+
+    <div class="col-6 text-right">
+        <a asp-controller="EmployeeDetails" asp-action="Index" class="btn btn-primary mx-1 ">Home</a>
+    </div>
+</div>
